@@ -5,12 +5,12 @@ public class Proyecto {
 	private int categoria;
 	private Date fecha;
 	private int i = 0;
-	Tarea[] tareas = new Tarea[i];
+	Tarea[] tareas;
 	private Desarrollador desarrolladorj;
 	private Desarrollador desarrolladors;
 	
-	public Proyecto() {
-		
+	public Proyecto(int i) {
+		Tarea[] tareas = new Tarea[i];
 	}
 	public String getNombre() {
 		return nombre;
@@ -47,5 +47,10 @@ public class Proyecto {
 	}
 	public void setI(int i) {
 		this.i = i;
+	}
+	public void agregarTarea(Tarea tarea) {
+		for (int ii = 0; ii < tareas.length; ii++) {
+            tareas[ii] = tarea;
+		}
 	}
 }
