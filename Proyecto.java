@@ -42,4 +42,10 @@ public class Proyecto {
 	public void setDesarrolladorS(Desarrollador desarrolladors) {
 		this.desarrolladors = desarrolladors;
 	}
+	public int getI() {
+		return i;
+	}
+	public void setI(int i) {
+		this.i = i;
+	}
 }
