@@ -10,7 +10,7 @@ public class Proyecto {
 	private Desarrollador desarrolladorj;
 	private Desarrollador desarrolladors;
 	
-	public Proyecto(String nombre, int categoria, Date fecha, int numTareas) {
+	public Proyecto(String nombre, int categoria, Date fecha, int i) {
     this.nombre = nombre;
     this.categoria = categoria;
     this.fecha = fecha;
