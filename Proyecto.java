@@ -4,13 +4,15 @@ public class Proyecto {
 	private String nombre;
 	private int categoria;
 	private Date fecha;
-	private int i = 0;
+	private int tareaCount;
+	private String maxtareas = "";
 	Tarea[] tareas;
 	private Desarrollador desarrolladorj;
 	private Desarrollador desarrolladors;
 	
 	public Proyecto(int i) {
-		Tarea[] tareas = new Tarea[i];
+		tareas = new Tarea[i];
+		tareaCount = 0;
 	}
 	public String getNombre() {
 		return nombre;
@@ -42,15 +44,15 @@ public class Proyecto {
 	public void setDesarrolladorS(Desarrollador desarrolladors) {
 		this.desarrolladors = desarrolladors;
 	}
-	public int getI() {
-		return i;
-	}
-	public void setI(int i) {
-		this.i = i;
-	}
 	public void agregarTarea(Tarea tarea) {
-		for (int ii = 0; ii < tareas.length; ii++) {
-            tareas[ii] = tarea;
-		}
+		if (tareaCount < tareas.length) {
+            tareas[tareaCount] = tarea;
+            tareaCount++;
+        } else {
+            maxtareas = "No se pueden agregar más tareas al proyecto.";
+        }
 	}
+	public Tarea[] getTareas() {
+        return tareas;
+    }
 }
