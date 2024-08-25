@@ -4,7 +4,7 @@ public class Tarea {
 	private double testimado;
 	private double treal;
 	private int estado;
-	private Desarrolador desarrollador;
+	private Desarrollador desarrollador;
 	
 	public Tarea() {
 		
