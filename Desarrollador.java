@@ -1,7 +1,7 @@
 public class Desarrollador {
 	private String nombre;
 	private int puesto;
-	private String Contrasenia;
+	private String contrasenia;
 	
 	public Desarrollador() {
 		
