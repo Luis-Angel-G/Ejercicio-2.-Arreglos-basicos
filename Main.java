@@ -8,7 +8,7 @@ public class Main {
 	private String maxdesarrolladores = "";
 	Desarrollador[] desarrolladores;
 	
-	public Main() {
+	public Main(int j, int k) {
 		Proyecto[] proyectos = new Proyecto[j];
 		proyectoCount = 0;
 		Desarrollador[] desarrolladores = new Desarrollador[k];
