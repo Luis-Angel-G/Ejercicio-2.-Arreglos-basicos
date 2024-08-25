@@ -9,9 +9,9 @@ public class Main {
 	Desarrollador[] desarrolladores;
 	
 	public Main(int j, int k) {
-		Proyecto[] proyectos = new Proyecto[j];
+		proyectos = new Proyecto[j];
 		proyectoCount = 0;
-		Desarrollador[] desarrolladores = new Desarrollador[k];
+		desarrolladores = new Desarrollador[k];
 		desarrolladorCount = 0;
 	}
 	public void agregarProyecto(Proyecto proyecto) {
