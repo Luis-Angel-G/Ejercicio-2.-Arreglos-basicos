@@ -10,9 +10,12 @@ public class Proyecto {
 	private Desarrollador desarrolladorj;
 	private Desarrollador desarrolladors;
 	
-	public Proyecto(int i) {
-		tareas = new Tarea[i];
-		tareaCount = 0;
+	public Proyecto(String nombre, int categoria, Date fecha, int numTareas) {
+    this.nombre = nombre;
+    this.categoria = categoria;
+    this.fecha = fecha;
+    tareas = new Tarea[i];
+    tareaCount = 0;
 	}
 	public String getNombre() {
 		return nombre;
