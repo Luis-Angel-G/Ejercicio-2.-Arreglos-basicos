@@ -40,7 +40,7 @@ public class Tarea {
 		this.estado = estado;
 	}
 	public Desarrollador getDesarrollador() {
-		return testimado;
+		return desarrollador;
 	}
 	public void setDesarrollador(Desarrollador desarrollador) {
 		this.desarrollador = desarrollador;
