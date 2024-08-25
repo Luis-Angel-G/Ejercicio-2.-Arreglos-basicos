@@ -7,7 +7,7 @@ public class Proyecto {
 	private int i = 0;
 	Tarea[] tareas = new Tarea[i];
 	private Desarrollador desarrolladorj;
-	private Desarrolador desarrolladors;
+	private Desarrollador desarrolladors;
 	
 	public Proyecto() {
 		
