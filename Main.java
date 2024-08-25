@@ -1,22 +1,39 @@
+import java.util.Date;
+
 public class Main {
-	private int j = 0;
-	Proyecto[] proyectos = new Proyecto[j];
-	private int k = 0;
-	Desarrollador[] desarrolladores = new Desarrollador[k];
+	private int proyectoCount;
+	private String maxproyectos = "";
+	Proyecto[] proyectos;
+	private int desarrolladorCount;
+	private String maxdesarrolladores = "";
+	Desarrollador[] desarrolladores;
 	
 	public Main() {
-		
+		Proyecto[] proyectos = new Proyecto[j];
+		proyectoCount = 0;
+		Desarrollador[] desarrolladores = new Desarrollador[k];
+		desarrolladorCount = 0;
 	}
-	public int getJ() {
-		return j;
+	public void agregarProyecto(Proyecto proyecto) {
+		if (proyectoCount < proyectos.length) {
+            proyectos[proyectoCount] = proyecto;
+            proyectoCount++;
+        } else {
+            maxproyectos = "No se pueden agregar mas proyectos.";
+        }
 	}
-	public void setJ(int j) {
-		this.j = j;
+	public Proyecto[] getProyectos() {
+        return proyectos;
+    }
+	public void agregarDesarrollador(Desarrollador desarrollador) {
+		if (desarrolladorCount < desarrolladores.length) {
+            desarrolladores[desarrolladorCount] = desarrollador;
+            desarrolladorCount++;
+        } else {
+            maxdesarrolladores = "No se pueden agregar mas desarrolladores.";
+        }
 	}
-	public int getK() {
-		return k;
-	}
-	public void setK(int k) {
-		this.k = k;
-	}
+	public Desarrollador[] getDesarrolladores() {
+        return desarrolladores;
+    }
 }
