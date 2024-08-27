@@ -6,7 +6,11 @@ public class Interfaz{
 		boolean menu = true;
 		int opcion = 0;
 		int cantp = 0;
-		int cantd =0;
+		int cantd = 0;
+		String nombrep = "";
+		String fecha = "";
+		Date fechal;
+		int cantt = 0;
 		Main main = new Main();
 		
 		Scanner teclado = new Scanner(System.in);
@@ -17,7 +21,7 @@ public class Interfaz{
 		System.out.println("Ingrese la cantidad de desarrolladores que tiene la empresa: ");
 		cantd = teclado.nextInt();
 		teclado.nextLine();
-		main.Main(cantp, cantd);
+		Main main = new Main(cantp, cantd);
 		
         while(menu){
             System.out.println("--- Menu Principal ---");
@@ -33,10 +37,45 @@ public class Interfaz{
 			
 			switch(opcion) {
 				case 1:
+					System.out.println("Ingrese el nombre del proyecto:");
+					nombrep = teclado.nextLine();
+					System.out.println("--- Categorias ---");
+					System.out.println("1. Desarrollo de Software");
+					System.out.println("2. Mantenimiento de Sistemas");
+					System.out.println("Ingrese el numero de la categoria del proyecto:")
+					categoria = teclado.nextInt();
+					teclado.nextLine();
+					System.out.println("Ingrese la fecha limite para la entrega del proyecto en formato dd/MM/yyyy:")
+					fecha = teclado.nextLine();
+					try {
+                        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+                        fechal = formato.parse(fecha);
+                    } catch (Exception e) {
+                        System.out.println("Formato de fecha incorrecto.");
+                        break;
+                    }
+					System.out.println("Ingrese la cantidad de tareas que tendra el proyecto:")
+					cantt = teclado.nextInt();
+					teclado.nextLine();
+					
+					Proyecto nuevoProyecto = new Proyecto(nombrep, categoria, fechal, cantt);
+                    main.agregarProyecto(nuevoProyecto);
+
+                    System.out.println("Proyecto creado exitosamente.");
+                    break;
+
+                case 2:
+					System.out.print
+
+                case 6:
+                    menu = false;
+                    System.out.println("Saliendo del sistema...");
+                    break;
+
+                default:
+                    System.out.println("Opción no válida, intente de nuevo.");
+                    break;
 			}
-            
-			
-			
 		}
 	}
 }
