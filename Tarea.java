@@ -50,4 +50,10 @@ public class Tarea {
 	public void setDesarrollador(Desarrollador desarrollador) {
 		this.desarrollador = desarrollador;
 	}
+	@Override
+	public String toString() {
+		String[] tipos = {"Desarrollo", "Pruebas", "Documentación"};
+		String[] estados = {"No iniciada", "En proceso", "Finalizada"};
+		return nombre + ": Tipo: " + tipos[tipo - 1] + ", Estado: " + estados[estado - 1] + ", Asignado a: " + desarrollador;
+	}
 }
