@@ -3,9 +3,11 @@ public class Desarrollador {
 	private int puesto;
 	private String contrasenia;
 	
-	public Desarrollador() {
-		
-	}
+	public Desarrollador(String nombre, int puesto, String contrasenia) {
+        this.nombre = nombre;
+        this.puesto = puesto;
+        this.contrasenia = contrasenia;
+    }
 	public String getNombre() {
 		return nombre;
 	}
