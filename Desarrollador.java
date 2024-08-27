@@ -26,4 +26,8 @@ public class Desarrollador {
 	public void setContrasenia(String contrasenia) {
 		this.contrasenia = contrasenia;
 	}
+	@Override
+	public String toString() {
+		return nombre + " - " + (puesto == 1 ? "Senior" : "Junior");
+	}
 }
