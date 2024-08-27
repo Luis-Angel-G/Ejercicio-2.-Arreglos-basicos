@@ -24,6 +24,7 @@ public class Interfaz{
 		int nuevoEstado = 0;
 		double horas = 0;
 		int el = 0;
+		String ncontr = "";
 		
 		Scanner teclado = new Scanner(System.in);
 		
