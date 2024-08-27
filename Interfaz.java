@@ -63,9 +63,30 @@ public class Interfaz{
 					cantt = teclado.nextInt();
 					teclado.nextLine();
 					System.out.println("--- Desarrolladores senior ---");
-					System.out.println()
+					Desarrollador[] seniorDev = main.getDesarrolladoresS();
+                    for (int i = 0; i < seniorDev.length; i++) {
+                        if (seniorDev[i] != null) {
+                            System.out.println(i + ": " + seniorDev[i]);
+                        }
+                    }
+                    System.out.print("Seleccione el índice del desarrollador senior: ");
+                    int idxSenior = teclado.nextInt();
+                    teclado.nextLine();
+                    Desarrollador desarrolladorSenior = seniorDev[idxSenior];
 					
-					Proyecto nuevoProyecto = new Proyecto(nombrep, categoria, fechal, cantt);
+					System.out.println("--- Desarrolladores junior ---");
+					Desarrollador[] juniorDev = main.getDesarrolladoresJ();
+                    for (int i = 0; i < juniorDev.length; i++) {
+                        if (juniorDev[i] != null) {
+                            System.out.println(i + ": " + juniorDev[i]);
+                        }
+                    }
+                    System.out.print("Seleccione el índice del desarrollador junior: ");
+                    int idxJunior = teclado.nextInt();
+                    teclado.nextLine();
+                    Desarrollador desarrolladorJunior = juniorDev[idxJunior];
+					
+					Proyecto nuevoProyecto = new Proyecto(nombrep, categoria, fechal, cantt, desarrolladorJunior, desarrolladorSenior);
                     main.agregarProyecto(nuevoProyecto);
 
                     System.out.println("Proyecto creado exitosamente.");
