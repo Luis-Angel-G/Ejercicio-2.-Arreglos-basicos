@@ -36,4 +36,10 @@ public class Main {
 	public Desarrollador[] getDesarrolladores() {
         return desarrolladores;
     }
+	public StringdesarrolladoresJ() {
+		for (z = 0; z < desarrolladores.length; z++)
+			if (desarrolladores[z].getPuesto() == 2){
+				return desarrolladores[z];
+			}
+	}
 }
