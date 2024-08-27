@@ -57,6 +57,7 @@ public class Interfaz{
 					System.out.println("Ingrese la cantidad de tareas que tendra el proyecto:")
 					cantt = teclado.nextInt();
 					teclado.nextLine();
+					System.out.println("--- Desarrolladores senior ---")
 					
 					Proyecto nuevoProyecto = new Proyecto(nombrep, categoria, fechal, cantt);
                     main.agregarProyecto(nuevoProyecto);
