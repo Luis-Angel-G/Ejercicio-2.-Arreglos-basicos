@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Interfaz{
 	public static void main(String[] args){
@@ -12,6 +13,10 @@ public class Interfaz{
 		Date fechal;
 		int categoria = 0;
 		int cantt = 0;
+		String nombret = "";
+		int tipo = 0;
+		double test = 0;
+		Desarrollador des;
 		
 		Scanner teclado = new Scanner(System.in);
 		
@@ -48,6 +53,7 @@ public class Interfaz{
 					if (categoria == 1 || categoria == 2) {
 						
 					} else {
+						System.out.println("ERROR: Ingrese solo los numeros que aparecen en pantalla");
 						break;
 					}
 					System.out.println("Ingrese la fecha limite para la entrega del proyecto en formato dd/MM/yyyy:");
@@ -93,7 +99,50 @@ public class Interfaz{
                     break;
 
                 case 2:
+					System.out.println("Ingrese el nombre de la tarea:");
+					nombret = teclado.nextLine();
+					
+					System.out.println("--- Tipos ---");
+					System.out.println("1. Desarrollo");
+					System.out.println("2. Pruebas");
+					System.out.println("3. Documentacion");
+					System.out.println("Ingrese el numero del tipo de la tarea:");
+					tipo = teclado.nextInt();
+					teclado.nextLine();
+					if (tipo == 1 || tipo == 2 || tipo == 3) {
+						
+					} else {
+						System.out.println("ERROR: Ingrese solo los numeros que aparecen en pantalla");
+						break;
+					}
+					
+					System.out.println("Ingrese el tiempo estimado de la tarea:");
+					test = teclado.nextDouble();
+					teclado.nextLine();
+					
+					System.out.println("--- Desarrolladores ---");
+					System.out.println(desarrolladorJunior);
+					System.out.println(desarrolladorSenior);
+					System.out.println("Ingrese el nombre del desarrollador encargado de la tarea:");
+					des = teclado.nextLine();
+					
+					System.out.println("--- Seleccionar proyecto ---");
+                    Proyecto[] proyectos = main.getProyectos();
+                    for (int i = 0; i < proyectos.length; i++) {
+                        if (proyectos[i] != null) {
+                            System.out.println(i + ": " + proyectos[i]);
+                        }
+                    }
+                    System.out.print("Seleccione el índice del proyecto al que desea agregar la tarea: ");
+                    int idxProyecto = teclado.nextInt();
+                    teclado.nextLine();
+                    Proyecto proyectoSeleccionado = proyectos[idxProyecto];
+                    
+                    Tarea nuevaTarea = new Tarea(nombret, tipo, test, desarrolladorEncargado);
+                    proyectoSeleccionado.agregarTarea(nuevaTarea);
 
+                    System.out.println("Tarea agregada exitosamente.");
+                    break;
                 case 6:
                     menu = false;
                     System.out.println("Saliendo del sistema...");
