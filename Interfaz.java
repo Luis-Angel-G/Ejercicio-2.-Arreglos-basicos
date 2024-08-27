@@ -17,6 +17,11 @@ public class Interfaz{
 		int tipo = 0;
 		double test = 0;
 		Desarrollador des;
+		String nombred = "";
+		int puesto = 0;
+		String contrasenia = "";
+		String contra = "";
+		int nuevoEstado = 0;
 		
 		Scanner teclado = new Scanner(System.in);
 		
@@ -99,34 +104,7 @@ public class Interfaz{
                     break;
 
                 case 2:
-					System.out.println("Ingrese el nombre de la tarea:");
-					nombret = teclado.nextLine();
-					
-					System.out.println("--- Tipos ---");
-					System.out.println("1. Desarrollo");
-					System.out.println("2. Pruebas");
-					System.out.println("3. Documentacion");
-					System.out.println("Ingrese el numero del tipo de la tarea:");
-					tipo = teclado.nextInt();
-					teclado.nextLine();
-					if (tipo == 1 || tipo == 2 || tipo == 3) {
-						
-					} else {
-						System.out.println("ERROR: Ingrese solo los numeros que aparecen en pantalla");
-						break;
-					}
-					
-					System.out.println("Ingrese el tiempo estimado de la tarea:");
-					test = teclado.nextDouble();
-					teclado.nextLine();
-					
-					System.out.println("--- Desarrolladores ---");
-					System.out.println(desarrolladorJunior);
-					System.out.println(desarrolladorSenior);
-					System.out.println("Ingrese el nombre del desarrollador encargado de la tarea:");
-					des = teclado.nextLine();
-					
-					System.out.println("--- Seleccionar proyecto ---");
+					System.out.println("--- Proyectos ---");
                     Proyecto[] proyectos = main.getProyectos();
                     for (int i = 0; i < proyectos.length; i++) {
                         if (proyectos[i] != null) {
@@ -138,11 +116,122 @@ public class Interfaz{
                     teclado.nextLine();
                     Proyecto proyectoSeleccionado = proyectos[idxProyecto];
                     
-                    Tarea nuevaTarea = new Tarea(nombret, tipo, test, desarrolladorEncargado);
+                    System.out.println("Ingrese el nombre de la tarea:");
+                    nombret = teclado.nextLine();
+                    System.out.println("--- Tipos ---");
+                    System.out.println("1. Desarrollo");
+                    System.out.println("2. Pruebas");
+                    System.out.println("3. Documentación");
+                    System.out.print("Ingrese el número del tipo de la tarea: ");
+                    tipo = teclado.nextInt();
+                    teclado.nextLine();
+                    if (tipo == 1 || tipo == 2 || tipo == 3) {
+						
+					} else {
+						System.out.println("ERROR: Ingrese solo los numeros que aparecen en pantalla");
+						break;
+					}
+					
+                    System.out.print("Ingrese el tiempo estimado de la tarea: ");
+                    test = teclado.nextDouble();
+                    teclado.nextLine();
+                    
+                    System.out.println("--- Desarrolladores ---");
+                    Desarrollador[] desarrolladoresProyecto = proyectoSeleccionado.getDesarrolladores();
+                    for (int i = 0; i < desarrolladoresProyecto.length; i++) {
+                        if (desarrolladoresProyecto[i] != null) {
+                            System.out.println(i + ": " + desarrolladoresProyecto[i]);
+                        }
+                    }
+                    System.out.print("Ingrese el índice del desarrollador encargado de la tarea: ");
+                    int idxDesarrollador = teclado.nextInt();
+                    teclado.nextLine();
+                    Desarrollador desarrolladorEncargado = desarrolladoresProyecto[idxDesarrollador];
+                    
+                    Tarea nuevaTarea = new Tarea();
+                    nuevaTarea.setNombre(nombret);
+                    nuevaTarea.setTipo(tipo);
+                    nuevaTarea.setTEstimado(test);
+                    nuevaTarea.setDesarrollador(desarrolladorEncargado);
                     proyectoSeleccionado.agregarTarea(nuevaTarea);
 
                     System.out.println("Tarea agregada exitosamente.");
                     break;
+				case 3:
+					System.out.println("Ingrese el nombre del desarrollador:");
+					nombred = teclado.nextLine();
+					System.out.println("--- Puestos ---");
+					System.out.println("1. Senior");
+					System.out.println("2. Junior");
+					System.out.println("Ingrese el numero del puesto del desarrollador:");
+					puesto = teclado.nextInt();
+					teclado.nextLine();
+					if (puesto == 1 || puesto == 2) {
+						
+					} else {
+						System.out.println("ERROR: Ingrese solo los numeros que aparecen en pantalla");
+						break;
+					}
+					System.out.println("Ingrese la contraseña del desarrollador:");
+					contrasenia = teclado.nextLine();
+
+					
+					Desarrollador nuevoDesarrollador = new Desarrollador(nombred, puesto, contrasenia);
+                    main.agregarDesarrollador(nuevoDesarrollador);
+
+                    System.out.println("Desarrollador creado exitosamente.");
+                    break;
+				case 4:
+					System.out.println("--- Proyectos ---");
+                    proyectos = main.getProyectos();
+                    for (int i = 0; i < proyectos.length; i++) {
+                        if (proyectos[i] != null) {
+                            System.out.println(i + ": " + proyectos[i]);
+                        }
+                    }
+                    System.out.print("Seleccione el índice del proyecto al que desea actualizar la tarea: ");
+                    idxProyecto = teclado.nextInt();
+                    teclado.nextLine();
+                    proyectoSeleccionado = proyectos[idxProyecto];
+
+                    System.out.println("--- Tareas ---");
+                    Tarea[] tareas = proyectoSeleccionado.getTareas();
+                    for (int i = 0; i < tareas.length; i++) {
+                        if (tareas[i] != null) {
+                            System.out.println(i + ": " + tareas[i]);
+                        }
+                    }
+                    System.out.print("Seleccione el índice de la tarea a actualizar: ");
+                    int idxTarea = teclado.nextInt();
+                    teclado.nextLine();
+                    Tarea tareaSeleccionada = tareas[idxTarea];
+
+                    System.out.println("Ingrese su contraseña de desarrollador:");
+					contra = teclado.nextLine();
+					if (tarea.getDesarrollador().getContrasenia() == contra) {
+						System.out.println("--- Actualización de Estado de la Tarea ---");
+						System.out.println("1. Pendiente");
+						System.out.println("2. En Proceso");
+						System.out.println("3. Finalizada");
+						System.out.print("Ingrese el nuevo estado de la tarea: ");
+						int nuevoEstado = teclado.nextInt();
+						teclado.nextLine();
+						if (nuevoEstado == 1 || nuevoEstado == 2 || nuevoEstado == 3) {
+						
+						} else {
+						System.out.println("ERROR: Ingrese solo los numeros que aparecen en pantalla");
+						break;
+						}
+
+						tareaSeleccionada.setEstado(nuevoEstado);
+						System.out.println("Estado de la tarea actualizado exitosamente.");
+						
+						System.out.println("Ingrese cuantas horas trabajo esta vez:");
+						horas = teclado.nextDouble();
+						teclado.nextLine();
+						tareaSeleccionada.setTReal(tareaSeleccionada.getTReal + horas);
+						break;
+					}
                 case 6:
                     menu = false;
                     System.out.println("Saliendo del sistema...");
