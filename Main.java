@@ -40,7 +40,7 @@ public class Main {
 		Desarrollador[] desj = new Desarrollador[desarrolladorCount];
 		int index = 0;
 		for (Desarrollador d : desarrolladores) {
-			if (d ! null && d.getPuesto() == 2) {
+			if (d != null && d.getPuesto() == 2) {
 				desj[index] = d;
 				index++;
 			}
@@ -51,7 +51,7 @@ public class Main {
 		Desarrollador[] dess = new Desarrollador[desarrolladorCount];
 		int index1 = 0;
 		for (Desarrollador d : desarrolladores) {
-			if (d ! null && d.getPuesto() == 1) {
+			if (d != null && d.getPuesto() == 1) {
 				dess[index1] = d;
 				index1++;
 			}
