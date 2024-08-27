@@ -22,6 +22,8 @@ public class Interfaz{
 		String contrasenia = "";
 		String contra = "";
 		int nuevoEstado = 0;
+		double horas = 0;
+		int el = 0;
 		
 		Scanner teclado = new Scanner(System.in);
 		
@@ -229,9 +231,28 @@ public class Interfaz{
 						System.out.println("Ingrese cuantas horas trabajo esta vez:");
 						horas = teclado.nextDouble();
 						teclado.nextLine();
-						tareaSeleccionada.setTReal(tareaSeleccionada.getTReal + horas);
+						tareaSeleccionada.setTReal(tareaSeleccionada.getTReal() + horas);
+						
+						System.out.println("Quiere actualizar contraseña?");
+						System.out.println("1. Si");
+						System.out.println("2. No");
+						el = teclado.nextInt();
+						teclado.nextLine();
+						if (el == 1){
+							System.out.println("Ingrese nueva contraseña:");
+							ncontr = teclado.nextLine();
+							tarea.getDesarrollador().setContrasenia(ncontr);
+							System.out.println("Contraseña actualizada correctamente.");
+						} else {
+							break;
+						}
+						break;
+					} else {
+						System.out.println("Contraseña incorrecta");
 						break;
 					}
+				case 5:
+					
                 case 6:
                     menu = false;
                     System.out.println("Saliendo del sistema...");
