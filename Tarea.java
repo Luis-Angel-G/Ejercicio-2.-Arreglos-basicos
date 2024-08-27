@@ -6,9 +6,14 @@ public class Tarea {
 	private int estado;
 	private Desarrollador desarrollador;
 	
-	public Tarea() {
-		
-	}
+	public Tarea(String nombre, int tipo, double tiempoEstimado, Desarrollador desarrollador) {
+        this.nombre = nombre;
+        this.tipo = tipo;
+        this.tiempoEstimado = tiempoEstimado;
+        this.tiempoReal = 0;
+        this.estado = 1;
+        this.desarrollador = desarrollador;
+    }
 	public String getNombre() {
 		return nombre;
 	}
