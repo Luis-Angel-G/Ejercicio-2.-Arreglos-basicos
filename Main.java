@@ -36,16 +36,22 @@ public class Main {
 	public Desarrollador[] getDesarrolladores() {
         return desarrolladores;
     }
-	public String desarrolladoresJ() {
-		for (z = 0; z < desarrolladores.length; z++)
-			if (desarrolladores[z].getPuesto() == 2){
-				return desarrolladores[z];
+	public Desarrollador[] desarrolladoresJ() {
+		Desarrollador[] desj = new Desarrollador[desarrolladorCount];
+		int index = 0;
+		for (Desarrollador d : desarrolladores) {
+			if (d ! null && d.getPuesto() == 2) {
+				desj[index] = d;
 			}
+		}
 	}
-	public String desarrolladoresS() {
-		for (z = 0; z < desarrolladores.length; z++)
-			if (desarrolladores[z].getPuesto() == 1){
-				return desarrolladores[z];
+	public Desarrollador[] desarrolladoresS() {
+		Desarrollador[] dess = new Desarrollador[desarrolladorCount];
+		int index1 = 0;
+		for (Desarrollador d : desarrolladores) {
+			if (d ! null && d.getPuesto() == 1) {
+				desj[index1] = d;
 			}
+		}
 	}
 }
