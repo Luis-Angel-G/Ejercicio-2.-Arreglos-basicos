@@ -44,14 +44,16 @@ public class Main {
 				desj[index] = d;
 			}
 		}
+		return desj;
 	}
 	public Desarrollador[] desarrolladoresS() {
 		Desarrollador[] dess = new Desarrollador[desarrolladorCount];
 		int index1 = 0;
 		for (Desarrollador d : desarrolladores) {
 			if (d ! null && d.getPuesto() == 1) {
-				desj[index1] = d;
+				dess[index1] = d;
 			}
 		}
+		return dess;
 	}
 }
