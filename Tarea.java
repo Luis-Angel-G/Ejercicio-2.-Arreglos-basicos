@@ -6,11 +6,11 @@ public class Tarea {
 	private int estado;
 	private Desarrollador desarrollador;
 	
-	public Tarea(String nombre, int tipo, double tiempoEstimado, Desarrollador desarrollador) {
+	public Tarea(String nombre, int tipo, double testimado, Desarrollador desarrollador) {
         this.nombre = nombre;
         this.tipo = tipo;
-        this.tiempoEstimado = tiempoEstimado;
-        this.tiempoReal = 0;
+        this.testimado = testimado;
+        this.treal = 0;
         this.estado = 1;
         this.desarrollador = desarrollador;
     }
