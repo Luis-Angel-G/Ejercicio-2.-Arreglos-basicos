@@ -42,9 +42,10 @@ public class Main {
 		for (Desarrollador d : desarrolladores) {
 			if (d ! null && d.getPuesto() == 2) {
 				desj[index] = d;
+				index++;
 			}
 		}
-		return desj;
+		return java.util.Arrays.copyOf(desj, index);
 	}
 	public Desarrollador[] desarrolladoresS() {
 		Desarrollador[] dess = new Desarrollador[desarrolladorCount];
@@ -52,8 +53,9 @@ public class Main {
 		for (Desarrollador d : desarrolladores) {
 			if (d ! null && d.getPuesto() == 1) {
 				dess[index1] = d;
+				index1++;
 			}
 		}
-		return dess;
+		return java.util.Arrays.copyOf(dess, index1);
 	}
 }
