@@ -63,4 +63,8 @@ public class Proyecto {
 	public Desarrollador[] getDesarrolladores() {
         return new Desarrollador[] { desarrolladorj, desarrolladors };
     }
+	@Override
+	public String toString() {
+		return nombre + " (Código: " + categoria + ")";
+	}
 }
