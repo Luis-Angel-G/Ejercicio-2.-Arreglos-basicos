@@ -253,7 +253,23 @@ public class Interfaz{
 						break;
 					}
 				case 5:
-					
+					System.out.println("--- REPORTE DE PROYECTOS EXISTENTES ---");
+					Proyecto[] proyectos = main.getProyectos();
+					for (Proyecto p : proyectos) {
+						if (p != null) {
+							System.out.println("\nPROYECTO: " + p.getNombre());
+							System.out.println("CODIGO: " + p.getCategoria());
+							System.out.println("TAREAS ASIGNADAS:");
+							
+							Tarea[] tareas = p.getTareas();
+							for (Tarea t : tareas) {
+								if (t != null) {
+									System.out.println(t);
+								}
+							}
+						}
+					}
+					break;
                 case 6:
                     menu = false;
                     System.out.println("Saliendo del sistema...");
