@@ -219,7 +219,7 @@ public class Interfaz{
 						System.out.print("Ingrese el nuevo estado de la tarea: ");
 						int nuevoEstado2 = teclado.nextInt();
 						teclado.nextLine();
-						if (nuevoEstado == 1 || nuevoEstado == 2 || nuevoEstado == 3) {
+						if (nuevoEstado2 == 1 || nuevoEstado2 == 2 || nuevoEstado2 == 3) {
 						
 						} else {
 						System.out.println("ERROR: Ingrese solo los numeros que aparecen en pantalla");
@@ -255,14 +255,14 @@ public class Interfaz{
 				case 5:
 					System.out.println("--- REPORTE DE PROYECTOS EXISTENTES ---");
 					Proyecto[] proyectos2 = main.getProyectos();
-					for (Proyecto p : proyectos) {
+					for (Proyecto p : proyectos2) {
 						if (p != null) {
 							System.out.println("\nPROYECTO: " + p.getNombre());
 							System.out.println("CODIGO: " + p.getCategoria());
 							System.out.println("TAREAS ASIGNADAS:");
 							
 							Tarea[] tareas2 = p.getTareas();
-							for (Tarea t : tareas) {
+							for (Tarea t : tareas2) {
 								if (t != null) {
 									System.out.println(t);
 								}
