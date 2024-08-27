@@ -77,7 +77,7 @@ public class Interfaz{
 					cantt = teclado.nextInt();
 					teclado.nextLine();
 					System.out.println("--- Desarrolladores senior ---");
-					Desarrollador[] seniorDev = main.getDesarrolladoresS();
+					Desarrollador[] seniorDev = main.desarrolladoresS();
                     for (int i = 0; i < seniorDev.length; i++) {
                         if (seniorDev[i] != null) {
                             System.out.println(i + ": " + seniorDev[i]);
@@ -89,7 +89,7 @@ public class Interfaz{
                     Desarrollador desarrolladorSenior = seniorDev[idxSenior];
 					
 					System.out.println("--- Desarrolladores junior ---");
-					Desarrollador[] juniorDev = main.getDesarrolladoresJ();
+					Desarrollador[] juniorDev = main.desarrolladoresJ();
                     for (int i = 0; i < juniorDev.length; i++) {
                         if (juniorDev[i] != null) {
                             System.out.println(i + ": " + juniorDev[i]);
@@ -151,7 +151,7 @@ public class Interfaz{
                     teclado.nextLine();
                     Desarrollador desarrolladorEncargado = desarrolladoresProyecto[idxDesarrollador];
                     
-                    Tarea nuevaTarea = new Tarea();
+                    Tarea nuevaTarea = new Tarea(nombret, tipo, test, desarrolladorEncargado);
                     nuevaTarea.setNombre(nombret);
                     nuevaTarea.setTipo(tipo);
                     nuevaTarea.setTEstimado(test);
@@ -211,13 +211,13 @@ public class Interfaz{
 
                     System.out.println("Ingrese su contraseña de desarrollador:");
 					contra = teclado.nextLine();
-					if (tarea.getDesarrollador().getContrasenia() == contra) {
+					if (tareaSeleccionada.getDesarrollador().getContrasenia() == contra) {
 						System.out.println("--- Actualización de Estado de la Tarea ---");
 						System.out.println("1. Pendiente");
 						System.out.println("2. En Proceso");
 						System.out.println("3. Finalizada");
 						System.out.print("Ingrese el nuevo estado de la tarea: ");
-						int nuevoEstado = teclado.nextInt();
+						int nuevoEstado2 = teclado.nextInt();
 						teclado.nextLine();
 						if (nuevoEstado == 1 || nuevoEstado == 2 || nuevoEstado == 3) {
 						
@@ -254,14 +254,14 @@ public class Interfaz{
 					}
 				case 5:
 					System.out.println("--- REPORTE DE PROYECTOS EXISTENTES ---");
-					Proyecto[] proyectos = main.getProyectos();
+					Proyecto[] proyectos2 = main.getProyectos();
 					for (Proyecto p : proyectos) {
 						if (p != null) {
 							System.out.println("\nPROYECTO: " + p.getNombre());
 							System.out.println("CODIGO: " + p.getCategoria());
 							System.out.println("TAREAS ASIGNADAS:");
 							
-							Tarea[] tareas = p.getTareas();
+							Tarea[] tareas2 = p.getTareas();
 							for (Tarea t : tareas) {
 								if (t != null) {
 									System.out.println(t);
