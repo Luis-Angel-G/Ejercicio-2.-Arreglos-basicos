@@ -60,4 +60,7 @@ public class Proyecto {
 	public Tarea[] getTareas() {
         return tareas;
     }
+	public Desarrollador[] getDesarrolladores() {
+        return new Desarrollador[] { desarrolladorj, desarrolladors };
+    }
 }
