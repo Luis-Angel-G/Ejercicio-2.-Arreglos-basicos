@@ -242,7 +242,7 @@ public class Interfaz{
 						if (el == 1){
 							System.out.println("Ingrese nueva contraseña:");
 							ncontr = teclado.nextLine();
-							tarea.getDesarrollador().setContrasenia(ncontr);
+							tareaSeleccionada.getDesarrollador().setContrasenia(ncontr);
 							System.out.println("Contraseña actualizada correctamente.");
 						} else {
 							break;
