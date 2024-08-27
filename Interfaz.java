@@ -10,8 +10,8 @@ public class Interfaz{
 		String nombrep = "";
 		String fecha = "";
 		Date fechal;
+		int categoria = 0;
 		int cantt = 0;
-		Main main = new Main();
 		
 		Scanner teclado = new Scanner(System.in);
 		
@@ -42,10 +42,15 @@ public class Interfaz{
 					System.out.println("--- Categorias ---");
 					System.out.println("1. Desarrollo de Software");
 					System.out.println("2. Mantenimiento de Sistemas");
-					System.out.println("Ingrese el numero de la categoria del proyecto:")
+					System.out.println("Ingrese el numero de la categoria del proyecto:");
 					categoria = teclado.nextInt();
 					teclado.nextLine();
-					System.out.println("Ingrese la fecha limite para la entrega del proyecto en formato dd/MM/yyyy:")
+					if (categoria == 1 || categoria == 2) {
+						
+					} else {
+						break;
+					}
+					System.out.println("Ingrese la fecha limite para la entrega del proyecto en formato dd/MM/yyyy:");
 					fecha = teclado.nextLine();
 					try {
                         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
@@ -54,10 +59,11 @@ public class Interfaz{
                         System.out.println("Formato de fecha incorrecto.");
                         break;
                     }
-					System.out.println("Ingrese la cantidad de tareas que tendra el proyecto:")
+					System.out.println("Ingrese la cantidad de tareas que tendra el proyecto:");
 					cantt = teclado.nextInt();
 					teclado.nextLine();
-					System.out.println("--- Desarrolladores senior ---")
+					System.out.println("--- Desarrolladores senior ---");
+					System.out.println()
 					
 					Proyecto nuevoProyecto = new Proyecto(nombrep, categoria, fechal, cantt);
                     main.agregarProyecto(nuevoProyecto);
@@ -66,7 +72,6 @@ public class Interfaz{
                     break;
 
                 case 2:
-					System.out.print
 
                 case 6:
                     menu = false;
