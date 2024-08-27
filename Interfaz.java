@@ -27,14 +27,19 @@ public class Interfaz{
 		String ncontr = "";
 		
 		Scanner teclado = new Scanner(System.in);
+		Main main = null;
 		
-		System.out.println("Ingrese la cantidad de proyectos que tendra la empresa: ");
-		cantp = teclado.nextInt();
-		teclado.nextLine();
-		System.out.println("Ingrese la cantidad de desarrolladores que tiene la empresa: ");
-		cantd = teclado.nextInt();
-		teclado.nextLine();
-		Main main = new Main(cantp, cantd);
+		try {
+			System.out.println("Ingrese la cantidad de proyectos que tendra la empresa: ");
+			cantp = teclado.nextInt();
+			teclado.nextLine();
+			System.out.println("Ingrese la cantidad de desarrolladores que tiene la empresa: ");
+			cantd = teclado.nextInt();
+			teclado.nextLine();
+			Main main = new Main(cantp, cantd);
+		} catch (IngresarExcepcion e) {
+			System.out.println("Error: No es el tipo de dato correcto.");
+		}
 		
         while(menu){
             System.out.println("--- Menu Principal ---");
@@ -73,9 +78,14 @@ public class Interfaz{
                         System.out.println("Formato de fecha incorrecto.");
                         break;
                     }
-					System.out.println("Ingrese la cantidad de tareas que tendra el proyecto:");
-					cantt = teclado.nextInt();
-					teclado.nextLine();
+					cantt = 0;
+					try {
+						System.out.println("Ingrese la cantidad de tareas que tendra el proyecto:");
+						cantt = teclado.nextInt();
+						teclado.nextLine();
+					} catch (IngresarException e) {
+						System.out.println("Error: No es el tipo de dato correcto.");
+					}
 					System.out.println("--- Desarrolladores senior ---");
 					Desarrollador[] seniorDev = main.desarrolladoresS();
                     for (int i = 0; i < seniorDev.length; i++) {
@@ -211,7 +221,7 @@ public class Interfaz{
 
                     System.out.println("Ingrese su contraseña de desarrollador:");
 					contra = teclado.nextLine();
-					if (tareaSeleccionada.getDesarrollador().getContrasenia() == contra) {
+					if (tareaSeleccionada.getDesarrollador().getContrasenia().equals(contra)) {
 						System.out.println("--- Actualización de Estado de la Tarea ---");
 						System.out.println("1. Pendiente");
 						System.out.println("2. En Proceso");
