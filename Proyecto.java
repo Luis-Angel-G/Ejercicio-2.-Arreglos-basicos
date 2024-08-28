@@ -118,24 +118,6 @@ public class Proyecto {
     }
 
     /**
-     * Obtiene el array de tareas del proyecto.
-     * 
-     * @return el array de tareas.
-     */
-    public Tarea[] getTareas() {
-        return tareas;
-    }
-
-    /**
-     * Establece el array de tareas del proyecto.
-     * 
-     * @param tareas el nuevo array de tareas.
-     */
-    public void setTareas(Tarea[] tareas) {
-        this.tareas = tareas;
-    }
-
-    /**
      * Obtiene el desarrollador junior asignado al proyecto.
      * 
      * @return el desarrollador junior.
