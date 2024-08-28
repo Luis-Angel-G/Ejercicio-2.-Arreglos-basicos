@@ -25,16 +25,22 @@ public class Interfaz{
 		double horas = 0;
 		int el = 0;
 		String ncontr = "";
+		int priori = 0;
 		
 		Scanner teclado = new Scanner(System.in);
+		Main main = null;
 		
-		System.out.println("Ingrese la cantidad de proyectos que tendra la empresa: ");
-		cantp = teclado.nextInt();
-		teclado.nextLine();
-		System.out.println("Ingrese la cantidad de desarrolladores que tiene la empresa: ");
-		cantd = teclado.nextInt();
-		teclado.nextLine();
-		Main main = new Main(cantp, cantd);
+		try {
+			System.out.println("Ingrese la cantidad de proyectos que tendra la empresa: ");
+			cantp = teclado.nextInt();
+			teclado.nextLine();
+			System.out.println("Ingrese la cantidad de desarrolladores que tiene la empresa: ");
+			cantd = teclado.nextInt();
+			teclado.nextLine();
+			Main main = new Main(cantp, cantd);
+		} catch (IngresarExcepcion e) {
+			System.out.println("Error: No es el tipo de dato correcto.");
+		}
 		
         while(menu){
             System.out.println("--- Menu Principal ---");
@@ -73,9 +79,14 @@ public class Interfaz{
                         System.out.println("Formato de fecha incorrecto.");
                         break;
                     }
-					System.out.println("Ingrese la cantidad de tareas que tendra el proyecto:");
-					cantt = teclado.nextInt();
-					teclado.nextLine();
+					cantt = 0;
+					try {
+						System.out.println("Ingrese la cantidad de tareas que tendra el proyecto:");
+						cantt = teclado.nextInt();
+						teclado.nextLine();
+					} catch (IngresarException e) {
+						System.out.println("Error: No es el tipo de dato correcto.");
+					}
 					System.out.println("--- Desarrolladores senior ---");
 					Desarrollador[] seniorDev = main.desarrolladoresS();
                     for (int i = 0; i < seniorDev.length; i++) {
@@ -100,7 +111,21 @@ public class Interfaz{
                     teclado.nextLine();
                     Desarrollador desarrolladorJunior = juniorDev[idxJunior];
 					
-					Proyecto nuevoProyecto = new Proyecto(nombrep, categoria, fechal, cantt, desarrolladorJunior, desarrolladorSenior);
+					System.out.println("--- Prioridades ---");
+                    System.out.println("1. Alta");
+                    System.out.println("2. Media");
+                    System.out.println("3. Baja");
+                    System.out.print("Ingrese el número de la prioridad de la tarea: ");
+                    priori = teclado.nextInt();
+                    teclado.nextLine();
+                    if (priori == 1 || priori == 2 || priori == 3) {
+						
+					} else {
+						System.out.println("ERROR: Ingrese solo los numeros que aparecen en pantalla");
+						break;
+					}
+					
+					Proyecto nuevoProyecto = new Proyecto(nombrep, categoria, fechal, cantt, desarrolladorJunior, desarrolladorSenior, priori);
                     main.agregarProyecto(nuevoProyecto);
 
                     System.out.println("Proyecto creado exitosamente.");
@@ -135,9 +160,19 @@ public class Interfaz{
 						break;
 					}
 					
-                    System.out.print("Ingrese el tiempo estimado de la tarea: ");
-                    test = teclado.nextDouble();
-                    teclado.nextLine();
+                    try {
+						System.out.print("Ingrese el tiempo estimado de la tarea: ");
+						test = teclado.nextDouble();
+						teclado.nextLine();
+						if (test <= 40) {
+							
+						} else {
+							System.out.println("No se puede agregar mas de 40 horas");
+							break;
+						}
+					} catch (IngresarException e) {
+						System.out.println("Error: No es el tipo de dato correcto.");
+					}
                     
                     System.out.println("--- Desarrolladores ---");
                     Desarrollador[] desarrolladoresProyecto = proyectoSeleccionado.getDesarrolladores();
@@ -211,7 +246,7 @@ public class Interfaz{
 
                     System.out.println("Ingrese su contraseña de desarrollador:");
 					contra = teclado.nextLine();
-					if (tareaSeleccionada.getDesarrollador().getContrasenia() == contra) {
+					if (tareaSeleccionada.getDesarrollador().getContrasenia().equals(contra)) {
 						System.out.println("--- Actualización de Estado de la Tarea ---");
 						System.out.println("1. Pendiente");
 						System.out.println("2. En Proceso");
@@ -229,10 +264,14 @@ public class Interfaz{
 						tareaSeleccionada.setEstado(nuevoEstado);
 						System.out.println("Estado de la tarea actualizado exitosamente.");
 						
-						System.out.println("Ingrese cuantas horas trabajo esta vez:");
-						horas = teclado.nextDouble();
-						teclado.nextLine();
-						tareaSeleccionada.setTReal(tareaSeleccionada.getTReal() + horas);
+						try {
+							System.out.println("Ingrese cuantas horas trabajo esta vez:");
+							horas = teclado.nextDouble();
+							teclado.nextLine();
+							tareaSeleccionada.setTReal(tareaSeleccionada.getTReal() + horas);
+						} catch (IngresarException e) {
+							System.out.println("Error: No es el tipo de dato correcto.");
+						}
 						
 						System.out.println("Quiere actualizar contraseña?");
 						System.out.println("1. Si");
