@@ -9,8 +9,9 @@ public class Proyecto {
 	Tarea[] tareas;
 	private Desarrollador desarrolladorj;
 	private Desarrollador desarrolladors;
+	private int prioridad;
 	
-	public Proyecto(String nombre, int categoria, Date fecha, int i, Desarrollador desarrolladorj, Desarrollador desarrolladors) {
+	public Proyecto(String nombre, int categoria, Date fecha, int i, Desarrollador desarrolladorj, Desarrollador desarrolladors, int prioridad) {
     this.nombre = nombre;
     this.categoria = categoria;
     this.fecha = fecha;
@@ -18,6 +19,7 @@ public class Proyecto {
     tareaCount = 0;
 	this.desarrolladorj = desarrolladorj;
 	this.desarrolladors = desarrolladors;
+	this.prioridad = prioridad;
 	}
 	public String getNombre() {
 		return nombre;
@@ -48,6 +50,12 @@ public class Proyecto {
 	}
 	public void setDesarrolladorS(Desarrollador desarrolladors) {
 		this.desarrolladors = desarrolladors;
+	}
+	public int getPrioridad() {
+		return prioridad;
+	}
+	public void setPrioridad(int prioridad) {
+		this.prioridad = prioridad;
 	}
 	public void agregarTarea(Tarea tarea) {
 		if (tareaCount < tareas.length) {
