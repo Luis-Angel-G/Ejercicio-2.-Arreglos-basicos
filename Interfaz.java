@@ -322,5 +322,6 @@ public class Interfaz{
                     break;
 			}
 		}
+		teclado.close();
 	}
 }
