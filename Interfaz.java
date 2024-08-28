@@ -31,16 +31,19 @@ public class Interfaz{
 		Main main = null;
 		
 		try {
-			System.out.println("Ingrese la cantidad de proyectos que tendra la empresa: ");
+			System.out.println("Ingrese la cantidad de proyectos que tendrá la empresa: ");
 			cantp = teclado.nextInt();
 			teclado.nextLine();
 			System.out.println("Ingrese la cantidad de desarrolladores que tiene la empresa: ");
 			cantd = teclado.nextInt();
 			teclado.nextLine();
-			Main main = new Main(cantp, cantd);
-		} catch (IngresarExcepcion e) {
+			main = new Main(cantp, cantd);
+		} catch (InputMismatchException e) {
 			System.out.println("Error: No es el tipo de dato correcto.");
+			teclado.nextLine();
+			continue;
 		}
+
 		
         while(menu){
             System.out.println("--- Menu Principal ---");
@@ -84,7 +87,7 @@ public class Interfaz{
 						System.out.println("Ingrese la cantidad de tareas que tendra el proyecto:");
 						cantt = teclado.nextInt();
 						teclado.nextLine();
-					} catch (IngresarException e) {
+					} catch (InputMismatchException e) {
 						System.out.println("Error: No es el tipo de dato correcto.");
 					}
 					System.out.println("--- Desarrolladores senior ---");
@@ -170,7 +173,7 @@ public class Interfaz{
 							System.out.println("No se puede agregar mas de 40 horas");
 							break;
 						}
-					} catch (IngresarException e) {
+					} catch (InputMismatchException e) {
 						System.out.println("Error: No es el tipo de dato correcto.");
 					}
                     
@@ -269,7 +272,7 @@ public class Interfaz{
 							horas = teclado.nextDouble();
 							teclado.nextLine();
 							tareaSeleccionada.setTReal(tareaSeleccionada.getTReal() + horas);
-						} catch (IngresarException e) {
+						} catch (InputMismatchException e) {
 							System.out.println("Error: No es el tipo de dato correcto.");
 						}
 						
