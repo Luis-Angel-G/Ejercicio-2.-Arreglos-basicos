@@ -1,3 +1,5 @@
+import java.util.Date;
+
 /**
  * Representa un proyecto en el sistema.
  * <p>
@@ -6,12 +8,10 @@
  * 
  * @author Luis Ángel Girón Arevalo
  * @version 1.0
- * @since [Fecha de Creación]
+ * @since 24/08/2024
  * @see Tarea
  * @see Desarrollador
  */
-import java.util.Date;
-
 public class Proyecto {
     private String nombre;
     private int categoria;
@@ -44,8 +44,6 @@ public class Proyecto {
         this.desarrolladors = desarrolladors;
         this.prioridad = prioridad;
     }
-
-    // Métodos getter y setter
 
     /**
      * Obtiene el nombre del proyecto.
@@ -171,6 +169,38 @@ public class Proyecto {
      */
     public void setDesarrolladors(Desarrollador desarrolladors) {
         this.desarrolladors = desarrolladors;
+    }
+
+    /**
+     * Agrega una tarea al proyecto.
+     * 
+     * @param tarea la tarea a agregar.
+     */
+    public void agregarTarea(Tarea tarea) {
+        if (tareaCount < tareas.length) {
+            tareas[tareaCount] = tarea;
+            tareaCount++;
+        } else {
+            maxtareas = "No se pueden agregar más tareas al proyecto.";
+        }
+    }
+
+    /**
+     * Obtiene el array de tareas del proyecto.
+     * 
+     * @return el array de tareas.
+     */
+    public Tarea[] getTareas() {
+        return tareas;
+    }
+
+    /**
+     * Obtiene los desarrolladores asignados al proyecto.
+     * 
+     * @return un array de desarrolladores.
+     */
+    public Desarrollador[] getDesarrolladores() {
+        return new Desarrollador[] { desarrolladorj, desarrolladors };
     }
 
     /**
