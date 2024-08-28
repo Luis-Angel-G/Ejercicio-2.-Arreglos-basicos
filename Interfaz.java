@@ -145,9 +145,13 @@ public class Interfaz{
 						break;
 					}
 					
-                    System.out.print("Ingrese el tiempo estimado de la tarea: ");
-                    test = teclado.nextDouble();
-                    teclado.nextLine();
+                    try {
+						System.out.print("Ingrese el tiempo estimado de la tarea: ");
+						test = teclado.nextDouble();
+						teclado.nextLine();
+					} catch (IngresarException e) {
+						System.out.println("Error: No es el tipo de dato correcto.");
+					}
                     
                     System.out.println("--- Desarrolladores ---");
                     Desarrollador[] desarrolladoresProyecto = proyectoSeleccionado.getDesarrolladores();
@@ -239,10 +243,14 @@ public class Interfaz{
 						tareaSeleccionada.setEstado(nuevoEstado);
 						System.out.println("Estado de la tarea actualizado exitosamente.");
 						
-						System.out.println("Ingrese cuantas horas trabajo esta vez:");
-						horas = teclado.nextDouble();
-						teclado.nextLine();
-						tareaSeleccionada.setTReal(tareaSeleccionada.getTReal() + horas);
+						try {
+							System.out.println("Ingrese cuantas horas trabajo esta vez:");
+							horas = teclado.nextDouble();
+							teclado.nextLine();
+							tareaSeleccionada.setTReal(tareaSeleccionada.getTReal() + horas);
+						} catch (IngresarException e) {
+							System.out.println("Error: No es el tipo de dato correcto.");
+						}
 						
 						System.out.println("Quiere actualizar contraseña?");
 						System.out.println("1. Si");
