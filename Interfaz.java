@@ -25,6 +25,7 @@ public class Interfaz{
 		double horas = 0;
 		int el = 0;
 		String ncontr = "";
+		int priori = 0;
 		
 		Scanner teclado = new Scanner(System.in);
 		Main main = null;
@@ -110,7 +111,21 @@ public class Interfaz{
                     teclado.nextLine();
                     Desarrollador desarrolladorJunior = juniorDev[idxJunior];
 					
-					Proyecto nuevoProyecto = new Proyecto(nombrep, categoria, fechal, cantt, desarrolladorJunior, desarrolladorSenior);
+					System.out.println("--- Prioridades ---");
+                    System.out.println("1. Alta");
+                    System.out.println("2. Media");
+                    System.out.println("3. Baja");
+                    System.out.print("Ingrese el número de la prioridad de la tarea: ");
+                    priori = teclado.nextInt();
+                    teclado.nextLine();
+                    if (priori == 1 || priori == 2 || priori == 3) {
+						
+					} else {
+						System.out.println("ERROR: Ingrese solo los numeros que aparecen en pantalla");
+						break;
+					}
+					
+					Proyecto nuevoProyecto = new Proyecto(nombrep, categoria, fechal, cantt, desarrolladorJunior, desarrolladorSenior, priori);
                     main.agregarProyecto(nuevoProyecto);
 
                     System.out.println("Proyecto creado exitosamente.");
@@ -149,6 +164,12 @@ public class Interfaz{
 						System.out.print("Ingrese el tiempo estimado de la tarea: ");
 						test = teclado.nextDouble();
 						teclado.nextLine();
+						if (test <= 40) {
+							
+						} else {
+							System.out.println("No se puede agregar mas de 40 horas");
+							break;
+						}
 					} catch (IngresarException e) {
 						System.out.println("Error: No es el tipo de dato correcto.");
 					}
